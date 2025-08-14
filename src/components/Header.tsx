@@ -6,11 +6,9 @@ const Header = () => {
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <div className="h-14 w-14 rounded-lg overflow-hidden bg-gradient-primary p-1">
-            <img src="/lovable-uploads/d1f5bdb2-d517-4dbd-8a2d-a979a3dc8abb.png" alt="FOODATO Logo" className="h-full w-full object-cover rounded-md" />
+          <div className="h-14 w-20 rounded-lg overflow-hidden p-1">
+            <img src="/lovable-uploads/fb55fe2d-99e8-483e-b043-0abe20dd791a.png" alt="FOODATO Logo" className="h-full w-full object-contain" />
           </div>
-          <span className="text-xl font-bold text-primary">
-        </span>
         </div>
 
         {/* Search Bar - Hidden on mobile */}
