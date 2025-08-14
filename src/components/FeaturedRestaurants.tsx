@@ -1,4 +1,5 @@
 import RestaurantCard from "./RestaurantCard";
+import tacoFiestaImage from "@/assets/taco-fiesta-new.jpg";
 
 const restaurants = [
   {
@@ -42,7 +43,7 @@ const restaurants = [
   {
     id: 5,
     name: "Taco Fiesta",
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=500&h=300&fit=crop",
+    image: tacoFiestaImage,
     cuisine: "Mexican • Tacos",
     rating: 4.5,
     deliveryTime: "20-30 min",
