@@ -7,13 +7,10 @@ const Header = () => {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <div className="h-10 w-10 rounded-full overflow-hidden bg-gradient-primary p-1">
-            <img 
-              src="/lovable-uploads/d1f5bdb2-d517-4dbd-8a2d-a979a3dc8abb.png" 
-              alt="FOODATO Logo" 
-              className="h-full w-full object-cover rounded-full"
-            />
+            <img src="/lovable-uploads/d1f5bdb2-d517-4dbd-8a2d-a979a3dc8abb.png" alt="FOODATO Logo" className="h-full w-full object-cover rounded-full" />
           </div>
-          <span className="text-xl font-bold text-primary">FOODATO</span>
+          <span className="text-xl font-bold text-primary">
+        </span>
         </div>
 
         {/* Search Bar - Hidden on mobile */}
