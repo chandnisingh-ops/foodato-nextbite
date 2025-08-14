@@ -1,27 +1,22 @@
 import { Search, MapPin, ShoppingCart, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
 const Header = () => {
-  return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+  return <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-primary">
             <span className="text-sm font-bold text-white">F</span>
           </div>
-          <span className="text-xl font-bold text-primary">FOODATO</span>
+          <span className="text-xl font-bold text-primary">FOODATDOOR</span>
         </div>
 
         {/* Search Bar - Hidden on mobile */}
         <div className="hidden flex-1 max-w-sm mx-8 md:flex">
           <div className="relative w-full">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              placeholder="Search restaurants or dishes..."
-              className="pl-10"
-            />
+            <Input placeholder="Search restaurants or dishes..." className="pl-10" />
           </div>
         </div>
 
@@ -42,8 +37,6 @@ const Header = () => {
           </Button>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
