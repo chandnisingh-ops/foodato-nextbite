@@ -16,10 +16,10 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container text-center text-white px-4">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          Good Food,
+          Your Cravings,
           <br />
           <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-            Faster than your Cravings
+            Our Priority
           </span>
         </h1>
         
