@@ -9,7 +9,7 @@ const Header = () => {
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-primary">
             <span className="text-sm font-bold text-white">F</span>
           </div>
-          <span className="text-xl font-bold text-primary">FOODATDOOR</span>
+          <span className="text-xl font-bold text-primary">FOODATO</span>
         </div>
 
         {/* Search Bar - Hidden on mobile */}
