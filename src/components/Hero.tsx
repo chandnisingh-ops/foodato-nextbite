@@ -15,10 +15,10 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 container text-center text-white px-4">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          Your Cravings,
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in">
+          <span className="inline-block animate-scale-in animation-delay-100">Your Cravings,</span>
           <br />
-          <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent inline-block animate-scale-in animation-delay-300">
             Our Priority
           </span>
         </h1>
