@@ -1,12 +1,95 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArrowLeft, Mail, Lock, User } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
+import { useToast } from "@/hooks/use-toast";
 
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [loading, setLoading] = useState(false);
+  
+  const { signUp, signIn, user } = useAuth();
+  const { toast } = useToast();
+  const navigate = useNavigate();
+
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email || !password) {
+      toast({
+        title: "Error",
+        description: "Please fill in all required fields",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (isSignUp && password !== confirmPassword) {
+      toast({
+        title: "Error", 
+        description: "Passwords do not match",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      if (isSignUp) {
+        const { error } = await signUp(email, password, fullName);
+        if (error) {
+          toast({
+            title: "Sign Up Failed",
+            description: error.message,
+            variant: "destructive"
+          });
+        } else {
+          toast({
+            title: "Success!",
+            description: "Please check your email to verify your account"
+          });
+        }
+      } else {
+        const { error } = await signIn(email, password);
+        if (error) {
+          toast({
+            title: "Sign In Failed", 
+            description: error.message,
+            variant: "destructive"
+          });
+        } else {
+          toast({
+            title: "Welcome back!",
+            description: "You have successfully signed in"
+          });
+          navigate("/");
+        }
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "An unexpected error occurred",
+        variant: "destructive"
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -41,7 +124,7 @@ const Auth = () => {
           </div>
 
           <div className="bg-card border rounded-lg p-6 shadow-card">
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               {isSignUp && (
                 <div className="space-y-2">
                   <Label htmlFor="name">Full Name</Label>
@@ -49,8 +132,11 @@ const Auth = () => {
                     <User className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                     <Input
                       id="name"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
                       placeholder="Enter your full name"
                       className="pl-10"
+                      disabled={loading}
                     />
                   </div>
                 </div>
@@ -63,8 +149,12 @@ const Auth = () => {
                   <Input
                     id="email"
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
                     className="pl-10"
+                    disabled={loading}
+                    required
                   />
                 </div>
               </div>
@@ -76,8 +166,13 @@ const Auth = () => {
                   <Input
                     id="password"
                     type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter your password"
                     className="pl-10"
+                    disabled={loading}
+                    required
+                    minLength={6}
                   />
                 </div>
               </div>
@@ -90,15 +185,19 @@ const Auth = () => {
                     <Input
                       id="confirmPassword"
                       type="password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
                       placeholder="Confirm your password"
                       className="pl-10"
+                      disabled={loading}
+                      required={isSignUp}
                     />
                   </div>
                 </div>
               )}
 
-              <Button type="submit" className="w-full" size="lg">
-                {isSignUp ? "Create Account" : "Sign In"}
+              <Button type="submit" className="w-full" size="lg" disabled={loading}>
+                {loading ? "Please wait..." : isSignUp ? "Create Account" : "Sign In"}
               </Button>
             </form>
 

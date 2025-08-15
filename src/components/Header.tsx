@@ -1,8 +1,14 @@
-import { Search, MapPin, ShoppingCart, User, Download } from "lucide-react";
+import { Search, MapPin, ShoppingCart, User, Download, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 const Header = () => {
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
   return <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
@@ -38,12 +44,24 @@ const Header = () => {
             </Button>
           </Link>
           
-          <Link to="/auth">
-            <Button variant="outline" size="sm">
-              <User className="h-4 w-4" />
-              <span className="hidden sm:inline ml-2">Sign In</span>
-            </Button>
-          </Link>
+          {user ? (
+            <div className="flex items-center space-x-2">
+              <span className="text-sm text-muted-foreground hidden sm:inline">
+                Welcome, {user.email?.split('@')[0]}
+              </span>
+              <Button variant="outline" size="sm" onClick={handleSignOut}>
+                <LogOut className="h-4 w-4" />
+                <span className="hidden sm:inline ml-2">Sign Out</span>
+              </Button>
+            </div>
+          ) : (
+            <Link to="/auth">
+              <Button variant="outline" size="sm">
+                <User className="h-4 w-4" />
+                <span className="hidden sm:inline ml-2">Sign In</span>
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </header>;
