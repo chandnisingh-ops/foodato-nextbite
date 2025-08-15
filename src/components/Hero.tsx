@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, MapPin } from "lucide-react";
-import heroImage from "@/assets/hero-food-prep.jpg";
+import heroImage from "@/assets/new-hero-food.jpg";
 
 const Hero = () => {
   return (
@@ -44,9 +44,6 @@ const Hero = () => {
                 className="pl-10 bg-white border-0 h-12 text-foreground"
               />
             </div>
-            <Button variant="hero" size="lg" className="h-12 px-8">
-              Find Food
-            </Button>
           </div>
         </div>
 

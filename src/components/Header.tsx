@@ -1,6 +1,7 @@
-import { Search, MapPin, ShoppingCart, User } from "lucide-react";
+import { Search, MapPin, ShoppingCart, User, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 const Header = () => {
   return <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
@@ -30,10 +31,19 @@ const Header = () => {
             <ShoppingCart className="h-4 w-4" />
           </Button>
           
-          <Button variant="outline" size="sm">
-            <User className="h-4 w-4" />
-            <span className="hidden sm:inline">Sign In</span>
-          </Button>
+          <Link to="/download">
+            <Button variant="outline" size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <Download className="h-4 w-4" />
+              <span className="hidden sm:inline ml-2">GET APP</span>
+            </Button>
+          </Link>
+          
+          <Link to="/auth">
+            <Button variant="outline" size="sm">
+              <User className="h-4 w-4" />
+              <span className="hidden sm:inline ml-2">Sign In</span>
+            </Button>
+          </Link>
         </div>
       </div>
     </header>;

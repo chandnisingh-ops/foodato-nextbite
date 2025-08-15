@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import categoryBg from "@/assets/category-bg.jpg";
 
 const categories = [
   { id: 1, name: "Pizza", emoji: "🍕", color: "bg-red-100" },
@@ -13,8 +14,17 @@ const categories = [
 
 const CategorySection = () => {
   return (
-    <section className="py-16 bg-muted/30">
-      <div className="container">
+    <section 
+      className="py-16 relative overflow-hidden"
+      style={{ 
+        backgroundImage: `url(${categoryBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      <div className="absolute inset-0 bg-background/80"></div>
+      <div className="container relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             What are you craving?
@@ -34,7 +44,7 @@ const CategorySection = () => {
               <div className={`w-16 h-16 rounded-full ${category.color} flex items-center justify-center text-2xl group-hover:scale-110 transition-bounce`}>
                 {category.emoji}
               </div>
-              <span className="text-sm font-medium">{category.name}</span>
+              <span className="text-sm font-medium group-hover:text-purple-600 transition-colors duration-300">{category.name}</span>
             </Button>
           ))}
         </div>
