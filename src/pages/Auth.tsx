@@ -119,8 +119,10 @@ const Auth = () => {
           {/* Title section with enhanced styling */}
           <div className="text-center mb-8">
             <div className="relative">
-              <h1 className="text-4xl font-bold mb-3 text-white drop-shadow-lg">
-                {isSignUp ? "Join FOODATO" : "Welcome Back"}
+              <h1 className="text-4xl font-bold mb-3 drop-shadow-lg">
+                <span className="text-reveal-animation">
+                  {isSignUp ? "Join FOODATO" : "Welcome"}
+                </span>
               </h1>
               <div className="absolute -inset-2 bg-gradient-primary blur-xl opacity-30 rounded-full"></div>
             </div>

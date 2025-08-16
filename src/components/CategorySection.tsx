@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import categoryBg from "@/assets/category-bg.jpg";
+import categoryBg from "@/assets/category-attractive-bg.jpg";
 
 const categories = [
   { id: 1, name: "Pizza", emoji: "🍕", color: "bg-red-100" },
@@ -23,7 +23,7 @@ const CategorySection = () => {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      <div className="absolute inset-0 bg-background/80"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/70 to-background/90"></div>
       <div className="container relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">

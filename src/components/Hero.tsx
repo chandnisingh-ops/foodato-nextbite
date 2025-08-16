@@ -1,24 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, MapPin } from "lucide-react";
-import heroImage from "@/assets/new-hero-food.jpg";
 
 const Hero = () => {
   return (
     <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      />
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Background Video */}
+      <video 
+        autoPlay 
+        muted 
+        loop 
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-taking-photos-of-a-food-blogger-enjoying-a-delicious-21.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-black/60" />
       
       {/* Content */}
       <div className="relative z-10 container text-center text-white px-4">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in">
           <span className="inline-block animate-scale-in animation-delay-100">Your Cravings,</span>
           <br />
-          <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent inline-block animate-scale-in animation-delay-300">
+          <span className="text-pop-animation bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent inline-block">
             Our Priority
           </span>
         </h1>

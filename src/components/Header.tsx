@@ -1,8 +1,9 @@
-import { Search, MapPin, ShoppingCart, User, Download, LogOut } from "lucide-react";
+import { Search, MapPin, User, Download, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
+import Cart from "@/components/Cart";
 const Header = () => {
   const { user, signOut } = useAuth();
 
@@ -33,9 +34,7 @@ const Header = () => {
             <span>Location</span>
           </Button>
           
-          <Button variant="ghost" size="icon">
-            <ShoppingCart className="h-4 w-4" />
-          </Button>
+          <Cart />
           
           <Link to="/download">
             <Button variant="outline" size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">

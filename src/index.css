@@ -121,3 +121,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .text-reveal-animation {
+    @apply bg-gradient-to-r from-black to-purple-600 bg-clip-text text-transparent bg-[length:0%_100%] bg-no-repeat animate-text-reveal;
+    background-image: linear-gradient(to right, black 50%, #9333ea 50%);
+  }
+  
+  .text-pop-animation {
+    @apply animate-text-pop;
+  }
+  
+  .animation-delay-100 {
+    animation-delay: 0.1s;
+  }
+  
+  .animation-delay-300 {
+    animation-delay: 0.3s;
+  }
+}
