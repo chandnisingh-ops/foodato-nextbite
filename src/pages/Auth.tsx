@@ -92,38 +92,48 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-hero relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-[url('/lovable-uploads/d1f5bdb2-d517-4dbd-8a2d-a979a3dc8abb.png')] opacity-5 bg-cover bg-center"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-primary rounded-full blur-3xl opacity-20 -translate-y-48 translate-x-48"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-t from-secondary to-accent rounded-full blur-3xl opacity-20 translate-y-48 -translate-x-48"></div>
+
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
+      <header className="relative z-10 w-full backdrop-blur-md bg-white/10 border-b border-white/20">
         <div className="container flex h-16 items-center">
           <Link to="/">
-            <Button variant="ghost" size="sm" className="mr-4">
+            <Button variant="outline" size="sm" className="mr-4 bg-white/10 border-white/20 text-white hover:bg-white/20">
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Home
             </Button>
           </Link>
-          <div className="h-14 w-20 rounded-lg overflow-hidden p-1">
+          <div className="h-14 w-20 rounded-lg overflow-hidden p-1 bg-white/20 backdrop-blur-sm">
             <img src="/lovable-uploads/fb55fe2d-99e8-483e-b043-0abe20dd791a.png" alt="FOODATO Logo" className="h-full w-full object-contain" />
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="container py-16">
-        <div className="max-w-md mx-auto">
+      <main className="relative z-10 container py-16 flex items-center justify-center min-h-[calc(100vh-4rem)]">
+        <div className="w-full max-w-md">
+          {/* Title section with enhanced styling */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">
-              {isSignUp ? "Create Account" : "Welcome Back"}
-            </h1>
-            <p className="text-muted-foreground">
+            <div className="relative">
+              <h1 className="text-4xl font-bold mb-3 text-white drop-shadow-lg">
+                {isSignUp ? "Join FOODATO" : "Welcome Back"}
+              </h1>
+              <div className="absolute -inset-2 bg-gradient-primary blur-xl opacity-30 rounded-full"></div>
+            </div>
+            <p className="text-white/80 text-lg">
               {isSignUp 
-                ? "Sign up to start ordering your favorite food" 
-                : "Sign in to your FOODATO account"
+                ? "Create your account and start your food journey" 
+                : "Sign in to continue your delicious experience"
               }
             </p>
           </div>
 
-          <div className="bg-card border rounded-lg p-6 shadow-card">
+          {/* Enhanced card with glassmorphism */}
+          <div className="bg-white/95 backdrop-blur-xl border border-white/20 rounded-2xl p-8 shadow-2xl shadow-black/10">
             <form onSubmit={handleSubmit} className="space-y-4">
               {isSignUp && (
                 <div className="space-y-2">
@@ -196,8 +206,20 @@ const Auth = () => {
                 </div>
               )}
 
-              <Button type="submit" className="w-full" size="lg" disabled={loading}>
-                {loading ? "Please wait..." : isSignUp ? "Create Account" : "Sign In"}
+              <Button 
+                type="submit" 
+                className="w-full bg-gradient-primary hover:bg-gradient-hero text-white font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-glow" 
+                size="lg" 
+                disabled={loading}
+              >
+                {loading ? (
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    Please wait...
+                  </div>
+                ) : (
+                  isSignUp ? "Create Account" : "Sign In"
+                )}
               </Button>
             </form>
 
@@ -206,7 +228,7 @@ const Auth = () => {
                 {isSignUp ? "Already have an account?" : "Don't have an account?"}
                 <Button
                   variant="link"
-                  className="ml-1 p-0 h-auto"
+                  className="ml-1 p-0 h-auto text-primary hover:text-primary/80 font-semibold"
                   onClick={() => setIsSignUp(!isSignUp)}
                 >
                   {isSignUp ? "Sign In" : "Sign Up"}
@@ -214,18 +236,21 @@ const Auth = () => {
               </p>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-8">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t" />
+                  <div className="w-full border-t border-gray-300" />
                 </div>
-                <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
+                <div className="relative flex justify-center text-sm">
+                  <span className="bg-white px-4 text-muted-foreground font-medium">Or continue with</span>
                 </div>
               </div>
               
-              <div className="mt-4 grid grid-cols-2 gap-3">
-                <Button variant="outline" className="w-full">
+              <div className="mt-6 grid grid-cols-2 gap-4">
+                <Button 
+                  variant="outline" 
+                  className="w-full border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all duration-300 hover:scale-[1.02]"
+                >
                   <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                     <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -234,7 +259,10 @@ const Auth = () => {
                   </svg>
                   Google
                 </Button>
-                <Button variant="outline" className="w-full">
+                <Button 
+                  variant="outline" 
+                  className="w-full border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all duration-300 hover:scale-[1.02]"
+                >
                   <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                   </svg>
