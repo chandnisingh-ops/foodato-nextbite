@@ -23,16 +23,8 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/auth" element={<Auth />} />
-            <Route path="/" element={
-              <ProtectedRoute>
-                <Index />
-              </ProtectedRoute>
-            } />
-            <Route path="/download" element={
-              <ProtectedRoute>
-                <DownloadApp />
-              </ProtectedRoute>
-            } />
+            <Route path="/" element={<Index />} />
+            <Route path="/download" element={<DownloadApp />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
