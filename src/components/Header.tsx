@@ -15,7 +15,7 @@ const Header = () => {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <div className="h-14 w-20 rounded-lg overflow-hidden p-1">
-            <img src="/lovable-uploads/fb55fe2d-99e8-483e-b043-0abe20dd791a.png" alt="FOODATO Logo" className="h-full w-full object-contain" />
+            <img src="/lovable-uploads/2943eb32-b9c4-474a-a906-53304d666a9b.png" alt="FOODATO Logo" className="h-full w-full object-contain" />
           </div>
         </div>
 

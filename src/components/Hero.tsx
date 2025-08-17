@@ -30,25 +30,6 @@ const Hero = () => {
           Discover amazing restaurants and get your favorite meals delivered to your doorstep in minutes
         </p>
 
-        {/* Search Section */}
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto">
-          <div className="flex flex-col sm:flex-row gap-4">
-            <div className="flex-1 relative">
-              <MapPin className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
-              <Input
-                placeholder="Enter your delivery address"
-                className="pl-10 bg-white border-0 h-12 text-foreground"
-              />
-            </div>
-            <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
-              <Input
-                placeholder="Search for restaurants or dishes"
-                className="pl-10 bg-white border-0 h-12 text-foreground"
-              />
-            </div>
-          </div>
-        </div>
 
         {/* Quick Stats */}
         <div className="grid grid-cols-3 gap-8 mt-12 max-w-md mx-auto">
