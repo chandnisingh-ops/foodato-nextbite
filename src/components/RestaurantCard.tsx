@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Star, Clock, Truck } from "lucide-react";
 
 interface RestaurantCardProps {
-  id: number;
+  id: string | number;
   name: string;
   image: string;
   cuisine: string;
@@ -11,6 +11,7 @@ interface RestaurantCardProps {
   deliveryTime: string;
   deliveryFee: string;
   promoted?: boolean;
+  onClick?: () => void;
 }
 
 const RestaurantCard = ({
@@ -21,9 +22,10 @@ const RestaurantCard = ({
   deliveryTime,
   deliveryFee,
   promoted = false,
+  onClick,
 }: RestaurantCardProps) => {
   return (
-    <Card className="overflow-hidden hover:shadow-card transition-smooth cursor-pointer group">
+    <Card className="overflow-hidden hover:shadow-card transition-smooth cursor-pointer group" onClick={onClick}>
       <div className="relative">
         <img
           src={image}

@@ -40,7 +40,15 @@ const MenuGrid = ({ selectedCategory, searchQuery }: MenuGridProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
       {filteredItems.map((item) => (
-        <MenuItemCard key={item.id} item={item} />
+        <MenuItemCard 
+          key={item.id} 
+          id={item.id}
+          name={item.name}
+          description={item.description}
+          price={item.price}
+          image={item.image}
+          category={item.category}
+        />
       ))}
     </div>
   );
